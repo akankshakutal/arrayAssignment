@@ -5,7 +5,7 @@ const average = function(numbers) {
     sum += numbers[index];
   }
   let avg = sum/length;
-  return avg;
+  return avg.toFixed(2);
 }
 
 exports.average = average;
