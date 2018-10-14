@@ -2,9 +2,15 @@ let assert = require('assert');
 let lib = require('../.lib/selectEvenOrOddNumbers.js');
 let countNumbers = require('../.lib/count.js');
 
+//empty array as input 
+actualOutput = lib.selectEven([]);
+expectedOutput = [];
+assert.deepEqual(actualOutput,expectedOutput);
+assert.equal(0,countNumbers.count(expectedOutput));
+
 //only one even number
-let actualOutput = lib.selectEven([2]);
-let expectedOutput = [2];
+actualOutput = lib.selectEven([2]);
+expectedOutput = [2];
 assert.deepEqual(actualOutput,expectedOutput);
 assert.equal(1,countNumbers.count(expectedOutput));
 
@@ -31,6 +37,12 @@ actualOutput = lib.selectEven([23,15,1,47,79]);
 expectedOutput = [];
 assert.deepEqual(actualOutput,expectedOutput);
 assert.equal(0,countNumbers.count(expectedOutput)); 
+
+//empty array as input 
+actualOutput = lib.selectOdd([]);
+expectedOutput = [];
+assert.deepEqual(actualOutput,expectedOutput);
+assert.equal(0,countNumbers.count(expectedOutput));
 
 //only one odd number
 actualOutput = lib.selectOdd([3]);
