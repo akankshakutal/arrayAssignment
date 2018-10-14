@@ -16,3 +16,12 @@ actualOutput = lib.mapLength([]);
 expectedOutput = [];
 assert.deepEqual(actualOutput,expectedOutput);
 
+//empty string as an input
+actualOutput = lib.mapLength(['']);
+expectedOutput = [0];
+assert.deepEqual(actualOutput,expectedOutput);
+
+//number as an input 
+actualOutput = lib.mapLength([123,456,7,89]);
+expectedOutput = [undefined,undefined,undefined,undefined];
+assert.deepEqual(actualOutput,expectedOutput);
