@@ -15,3 +15,7 @@ assert.deepEqual(actualOutput.expectedOutput);
 actualOutput = lib.reverseArray([4]);
 expectedOutput = [4];
 assert.deepEqual(actualOutput,expectedOutput);
+
+//string as an input 
+actualOutput = lib.reverseArray(["abc","xyz","lmn"]);
+expectedOutput = ["lmn","xyz","abc"];
