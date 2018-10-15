@@ -1,5 +1,5 @@
 const assert = require('assert');
-const lib = require('../.lib/averageOfElements.js');
+const lib = require('../lib/averageOfElements.js');
 
 //valid input
 let actualOutput = lib.average([1,2,3,4,5]);

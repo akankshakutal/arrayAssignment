@@ -1,5 +1,5 @@
 const assert = require('assert');
-const lib = require('../.lib/uniqueElements.js');
+const lib = require('../lib/uniqueElements.js');
 
 //empty array as aan input
 let actualOutput = lib.findUnique([]);

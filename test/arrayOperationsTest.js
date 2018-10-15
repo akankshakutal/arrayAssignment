@@ -1,5 +1,5 @@
 const assert = require('assert');
-const lib = require('../.lib/arrayOperations.js');
+const lib = require('../lib/arrayOperations.js');
 const addElement = lib.addElement,deleteElement=lib.deleteElement,sortArray=lib.sortArray;
 
 //inserting in the middle

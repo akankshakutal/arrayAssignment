@@ -1,4 +1,4 @@
-const lib = require('../.lib/addElementToArray.js');
+const lib = require('../lib/arrayOperations.js');
 
 let numbers = [ 1, 2, 3, 4,];
 let position = 5;

@@ -1,5 +1,5 @@
 const assert  = require('assert');
-const lib = require('../.lib/GreatestNumber.js');
+const lib = require('../lib/GreatestNumber.js');
 
 //valid input
 let actualOutput = lib.findGreatestNumber([16,30,56,0]);

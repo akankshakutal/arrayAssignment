@@ -1,6 +1,6 @@
 const assert = require('assert');
-const lib = require('../.lib/unionOfArray.js');
-const unique = require('../.lib/uniqueElements.js');
+const lib = require('../lib/unionOfArray.js');
+const unique = require('../lib/uniqueElements.js');
 
 //empty array as an input
 let actualOutput = lib.giveUnionOfArrays([],[]);

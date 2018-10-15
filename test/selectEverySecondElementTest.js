@@ -1,5 +1,5 @@
 const assert = require('assert');
-const lib = require('../.lib/selectEverySecondElement.js');
+const lib = require('../lib/selectEverySecondElement.js');
 
 //empty array
 let actualOutput = lib.selectEverySecondElement([]);

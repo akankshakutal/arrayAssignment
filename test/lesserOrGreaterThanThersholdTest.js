@@ -1,6 +1,6 @@
 const assert = require('assert');
-const lib  = require('../.lib/lesserOrGreaterThanThreshold.js');
-const countNumbers = require('../.lib/count.js');
+const lib  = require('../lib/lesserOrGreaterThanThreshold.js');
+const countNumbers = require('../lib/count.js');
 
 //one element array as input
 let actualOutput = lib.findGreaterNumbers([6],5);

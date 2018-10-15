@@ -1,10 +1,10 @@
-let assert = require('assert');
-let lib = require('../.lib/selectEvenOrOddNumbers.js');
-let countNumbers = require('../.lib/count.js');
+const assert = require('assert');
+const lib = require('../lib/selectEvenOrOddNumbers.js');
+const countNumbers = require('../lib/count.js');
 
 //empty array as input 
-actualOutput = lib.selectEven([]);
-expectedOutput = [];
+let actualOutput = lib.selectEven([]);
+let expectedOutput = [];
 assert.deepEqual(actualOutput,expectedOutput);
 assert.equal(0,countNumbers.count(expectedOutput));
 

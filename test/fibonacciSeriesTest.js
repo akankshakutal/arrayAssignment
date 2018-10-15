@@ -1,5 +1,5 @@
 const assert  = require('assert');
-const lib = require('../.lib/FibonacciSeries.js');
+const lib = require('../lib/FibonacciSeries.js');
 
 //valid input
 let actualOutput = lib.generateFibonacciSeries(3);

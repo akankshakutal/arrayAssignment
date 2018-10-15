@@ -1,5 +1,5 @@
 const assert = require('assert');
-const lib = require('../.lib/indexOfNumber.js');
+const lib = require('../lib/indexOfNumber.js');
 
 //valid input
 let actualOutput = lib.numberIndex([1,2,6,7,9,3],6);

@@ -1,5 +1,5 @@
 const assert  = require('assert');
-const lib = require('../.lib/lowestNumber.js');
+const lib = require('../lib/lowestNumber.js');
 
 //valid input
 let actualOutput = lib.findLowestNumber([16,30,56,0]);

@@ -1,6 +1,6 @@
 const assert  = require('assert');
-const lib = require('../.lib/extractDigits.js');
-const reverse = require('../.lib/reverseArray.js');
+const lib = require('../lib/extractDigits.js');
+const reverse = require('../lib/reverseArray.js');
 
 // valid input
 let actualOutput = lib.giveDigits(123456);

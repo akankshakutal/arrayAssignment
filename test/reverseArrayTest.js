@@ -1,5 +1,5 @@
 let assert = require('assert');
-let lib = require('../.lib/reverseArray.js');
+let lib = require('../lib/reverseArray.js');
 
 //non empty array
 let actualOutput = lib.reverseArray([1,2,3,4,5,6]);

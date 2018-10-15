@@ -1,5 +1,5 @@
 const assert = require('assert');
-const lib = require('../.lib/mappingLength.js');
+const lib = require('../lib/mappingLength.js');
 
 //valid input
 let actualOutput = lib.mapLength(["Abc","abcd","sed"]);
