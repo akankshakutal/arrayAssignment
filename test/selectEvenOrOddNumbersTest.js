@@ -2,7 +2,7 @@ const assert = require('assert');
 const lib = require('../lib/selectEvenOrOddNumbers.js');
 const countNumbers = require('../lib/count.js');
 
-//empty array as input 
+//empty array as input
 let actualOutput = lib.selectEven([]);
 let expectedOutput = [];
 assert.deepEqual(actualOutput,expectedOutput);
