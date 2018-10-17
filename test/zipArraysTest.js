@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { zipArrays } = require('../lib/zipArray.js');
+const { zipArrays } = require('../lib/zipArrays.js');
 
 //empty array as an input
 let actualOutput = zipArrays([],[]);
@@ -31,3 +31,7 @@ actualOutput = zipArrays([-1,-2,-4],[1,3,4]);
 expectedOutput = [[-1,1],[-2,3],[-4,4]];
 assert.deepEqual(actualOutput,expectedOutput);
 
+//string as an array element
+actualOutput = zipArrays(["abc","xyz"],["pqr","lmn"]);
+expectedOutput = [["abc","pqr"],["xyz","lmn"]];
+assert.deepEqual(actualOutput,expectedOutput);
