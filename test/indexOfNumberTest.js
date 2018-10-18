@@ -13,10 +13,10 @@ assert.equal(actualOutput,expectedOutput);
 
 //empty array
 actualOutput = lib.numberIndex([],7);
-expectedOutput = "Number is not present";
+expectedOutput = -1;
 assert.equal(actualOutput,expectedOutput);
 
 //number is not present 
 actualOutput = lib.numberIndex([1,2,3,4,5],9);
-expectedOutput = "Number is not present";
+expectedOutput = -1;
 assert.equal(actualOutput,expectedOutput);
