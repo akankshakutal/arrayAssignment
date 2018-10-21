@@ -10,6 +10,8 @@ const testCount = function(functionName,input,expectedOutput) {
   printLog(functionName,actualOutput,expectedOutput,"count");
 }
 
+console.log("---------- Test Report ----------");
+
 testLib(lib.selectEven,[],[]);
 testCount(lib.selectEven,[],0);
 
