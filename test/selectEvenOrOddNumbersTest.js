@@ -1,76 +1,48 @@
 const assert = require('assert');
 const lib = require('../lib/selectEvenOrOddNumbers.js');
-const countNumbers = require('../lib/count.js');
+const { count } = require('../lib/count.js');
+const { testLib } = require('../testLib.js');
+const { printLog } = require('../testLib.js');
 
-//empty array as input
-let actualOutput = lib.selectEven([]);
-let expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(0,countNumbers.count(expectedOutput));
+const testCount = function(functionName,input,expectedOutput) {  
+  let actualOutput = functionName(input);
+  assert.equal(expectedOutput,count(actualOutput));
+  printLog(functionName,actualOutput,expectedOutput,"count");
+}
 
-//only one even number
-actualOutput = lib.selectEven([2]);
-expectedOutput = [2];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(1,countNumbers.count(expectedOutput));
+testLib(lib.selectEven,[],[]);
+testCount(lib.selectEven,[],0);
 
-//negative numbers
-actualOutput = lib.selectEven([-2,-4,-5]); 
-expectedOutput = [-2,-4];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(2,countNumbers.count(expectedOutput));
+testLib(lib.selectEven,[2],[2]);
+testCount(lib.selectEven,[2],1);
 
-//combine both even and odd numbers
-actualOutput =lib.selectEven([2,6,9,3,5]) ;
-expectedOutput = [2,6];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(2,countNumbers.count(expectedOutput)); 
+testLib(lib.selectEven,[-2,-4,-5],[-2,-4]); 
+testCount(lib.selectEven,[-2,-4,-5],2);
 
-//only even numbers
-actualOutput = lib.selectEven([12,24,46,68,80]);
-expectedOutput = [12,24,46,68,80];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(5,countNumbers.count(expectedOutput)); 
+testLib(lib.selectEven,[2,6,9,3,5],[2,6]) ;
+testCount(lib.selectEven,[2,6,9,3,5],2);
 
-//only odd numbers
-actualOutput = lib.selectEven([23,15,1,47,79]);
-expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(0,countNumbers.count(expectedOutput)); 
+testLib(lib.selectEven,[12,24,46,68,80],[12,24,46,68,80]);
+testCount(lib.selectEven,[12,24,46,68,80],5);
 
-//empty array as input 
-actualOutput = lib.selectOdd([]);
-expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(0,countNumbers.count(expectedOutput));
+testLib(lib.selectEven,[23,15,1,47,79],[]);
+testCount(lib.selectEven,[23,15,1,47,79],0);
 
-//only one odd number
-actualOutput = lib.selectOdd([3]);
-expectedOutput = [3];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(1,countNumbers.count(expectedOutput));
+testLib(lib.selectOdd,[],[]);
+testCount(lib.selectOdd,[],0);
 
-//negative numbers
-actualOutput = lib.selectOdd([-2,-4,-5]); 
-expectedOutput = [-5];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(1,countNumbers.count(expectedOutput));
+testLib(lib.selectOdd,[3],[3]);
+testCount(lib.selectOdd,[3],1);
 
-//combine both even and odd numbers
-actualOutput =lib.selectOdd([2,6,9,3,5]) ;
-expectedOutput = [9,3,5];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(3,countNumbers.count(expectedOutput)); 
- 
-//only even numbers
-actualOutput = lib.selectOdd([12,24,46,68,80]);
-expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(0,countNumbers.count(expectedOutput));
+testLib(lib.selectOdd,[-2,-4,-5],[-5]); 
+testCount(lib.selectOdd,[-2,-4,-5],1);
 
-//only odd numbers
-actualOutput = lib.selectOdd([23,15,1,47,79]);
-expectedOutput = [23,15,1,47,79];
-assert.deepEqual(actualOutput,expectedOutput);
-assert.equal(5,countNumbers.count(expectedOutput)); 
+testLib(lib.selectOdd,[2,6,9,3,5],[9,3,5]) ;
+testCount(lib.selectOdd,[2,6,9,3,5],3);
+
+testLib(lib.selectOdd,[12,24,46,68,80],[]);
+testCount(lib.selectOdd,[12,24,46,68,80],0);
+
+testLib(lib.selectOdd,[23,15,1,47,79],[23,15,1,47,79]);
+testCount(lib.selectOdd,[23,15,1,47,79],5);
 
