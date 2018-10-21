@@ -1,27 +1,18 @@
 const assert = require('assert');
 const lib = require('../lib/mappingLength.js');
+const { testLib } = require('../testLib.js');
 
-//valid input
-let actualOutput = lib.mapLength(["Abc","abcd","sed"]);
-let expectedOutput = [3,4,3];
-assert.deepEqual(actualOutput,expectedOutput);
+console.log("---------- Test Report ----------");
 
-//empty string as an input 
-actualOutput = lib.mapLength([""," ","ab"]);
-expectedOutput = [0,1,2];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.mapLength,["Abc","abcd","sed"],[3,4,3]);
 
-//empty array as a input 
-actualOutput = lib.mapLength([]);
-expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.mapLength,[""," ","sed"],[0,1,3]);
 
-//empty string as an input
-actualOutput = lib.mapLength(['']);
-expectedOutput = [0];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.mapLength,[],[]);
 
-//number as an input 
-actualOutput = lib.mapLength([123,456,7,89]);
-expectedOutput = [undefined,undefined,undefined,undefined];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.mapLength,[""],[0]);
+
+testLib(lib.mapLength,["Abc","abcd","sed"],[3,4,3]);
+
+testLib(lib.mapLength,[123,456,7,89],[3,3,1,2]);
+
