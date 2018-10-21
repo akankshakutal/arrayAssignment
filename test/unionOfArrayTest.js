@@ -2,40 +2,30 @@ const assert = require('assert');
 const lib = require('../lib/unionOfArray.js');
 const unique = require('../lib/uniqueElements.js');
 
-//empty array as an input
-let actualOutput = lib.giveUnionOfArrays([],[]);
-actualOutput = unique.findUnique(actualOutput);
-let expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
+const testLib = function(functionName,expectedOutput,actualOutput) {
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log("Function name   : ",functionName.name);
+  console.log("Expected output : ",expectedOutput);
+  console.log("Actual Output   : ",actualOutput);
+  console.log("--------------------------------");
+}
+console.log("---------- Test Report ----------");
 
-//one same element 
+actualOutput = lib.giveUnionOfArrays([],[]);
+testLib(lib.giveUnionOfArrays,[],actualOutput);
+
 actualOutput = lib.giveUnionOfArrays([1],[1]);
-actualOutput = unique.findUnique(actualOutput);
-expectedOutput = [1];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.giveUnionOfArrays,[1],actualOutput);
 
-//differt array elements as an input
 actualOutput = lib.giveUnionOfArrays([1,2],[3,4]);
-actualOutput = unique.findUnique(actualOutput);
-expectedOutput = [1,2,3,4];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.giveUnionOfArrays,[1,2,3,4],actualOutput);
 
-//valid test
 actualOutput = lib.giveUnionOfArrays([12,34,56,78,90],[12,45,56,78,90,23]);
-actualOutput = unique.findUnique(actualOutput);
-expectedOutput =[12,34,56,78,90,45,23];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.giveUnionOfArrays,[12,34,56,78,90,45,23],actualOutput);
 
-//string input 
 actualOutput = lib.giveUnionOfArrays(["abc","pqr","xyz","lmn"],["xyz","abc","pqr"]);
-actualOutput = unique.findUnique(actualOutput);
-expectedOutput = ["abc","pqr","xyz","lmn"];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.giveUnionOfArrays,["abc","pqr","xyz","lmn"],actualOutput);
 
-//valid test
 actualOutput = lib.giveUnionOfArrays([12,34,56,78,90,12],[12,45,56,78,90,23,56]);
-actualOutput = unique.findUnique(actualOutput);
-expectedOutput =[12,34,56,78,90,45,23];
-assert.deepEqual(actualOutput,expectedOutput);
-
+testLib(lib.giveUnionOfArrays,[12,34,56,78,90,45,23],actualOutput);
 
