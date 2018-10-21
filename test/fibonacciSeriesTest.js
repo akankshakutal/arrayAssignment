@@ -1,22 +1,14 @@
 const assert  = require('assert');
 const lib = require('../lib/FibonacciSeries.js');
+const { testLib } = require('../testLib.js');
 
-//valid input
-let actualOutput = lib.generateFibonacciSeries(3);
-let expectedOutput = [0 ,1,1];
-assert.deepEqual(actualOutput,expectedOutput);
+console.log("---------- Test Report ----------");
 
-//string as an input
-actualOutput = lib.generateFibonacciSeries('4');
-expectedOutput = [0,1,1,2];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.generateFibonacciSeries,3,[0,1,1]);
 
-//0 as an input 
-actualOutput = lib.generateFibonacciSeries(0);
-expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.generateFibonacciSeries,'4',[0,1,1,2]);
 
-//1 as an input
- actualOutput = lib.generateFibonacciSeries(1);
-expectedOutput = [0];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.generateFibonacciSeries,0,[]);
+
+testLib(lib.generateFibonacciSeries,1,[0]);
+

@@ -11,7 +11,7 @@ const testLib = function(functionName,expectedOutput,actualOutput) {
 }
 console.log("---------- Test Report ----------");
 
-actualOutput = lib.findGreaterNumbers([2,3,4,5,6],3);
+let actualOutput = lib.findGreaterNumbers([2,3,4,5,6],3);
 testLib(lib.findGreaterNumbers,[4,5,6],actualOutput);
 
 actualOutput = lib.findGreaterNumbers([5],3);
