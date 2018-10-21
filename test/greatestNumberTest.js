@@ -1,28 +1,16 @@
 const assert  = require('assert');
 const lib = require('../lib/GreatestNumber.js');
+const { testLib } = require('../testLib.js');
 
-//valid input
-let actualOutput = lib.findGreatestNumber([16,30,56,0]);
-let expectedOutput = 56;
-assert.equal(actualOutput,expectedOutput);
+console.log("---------- Test Report ----------");
 
-//only one element in array
-actualOutput = lib.findGreatestNumber([6]);
-expectedOutput = 6
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.findGreatestNumber,[16,30,56,0],56);
 
-//empty array as an input
-actualOutput = lib.findGreatestNumber([]);
-expectedOutput = undefined
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.findGreatestNumber,[6],6);
 
-//same Greatest number 
-actualOutput = lib.findGreatestNumber([1,2,5,8,1]);
-expectedOutput = 8;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.findGreatestNumber,[],0);
 
-//negative numbers
-actualOutput = lib.findGreatestNumber([-1,-3,-45,5,9,1]);
-expectedOutput = 9;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.findGreatestNumber,[1,2,5,8,1],8);
+
+testLib(lib.findGreatestNumber,[-1,9,-45,5,9],9);
 
