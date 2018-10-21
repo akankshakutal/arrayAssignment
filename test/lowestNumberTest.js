@@ -1,17 +1,16 @@
 const assert  = require('assert');
-const lib = require('../lib/lowestNumber.js');
+const lib = require('../lib/LowestNumber.js');
+const { testLib } = require('../testLib.js');
 
-//valid input
-let actualOutput = lib.findLowestNumber([16,30,56,0]);
-let expectedOutput = 0;
-assert.equal(actualOutput,expectedOutput);
+console.log("---------- Test Report ----------");
 
-//empty array as an input
-actualOutput = lib.findLowestNumber([]);
-expectedOutput = undefined
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.findLowestNumber,[16,30,56,0],0);
 
-//same lowest number 
-actualOutput = lib.findLowestNumber([1,2,5,8,1]);
-expectedOutput = 1;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.findLowestNumber,[6],6);
+
+testLib(lib.findLowestNumber,[],undefined);
+
+testLib(lib.findLowestNumber,[1,2,5,8,1],1);
+
+testLib(lib.findLowestNumber,[-1,9,-45,5,9],-45);
+
