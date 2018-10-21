@@ -8,7 +8,7 @@ testLib(lib.findGreatestNumber,[16,30,56,0],56);
 
 testLib(lib.findGreatestNumber,[6],6);
 
-testLib(lib.findGreatestNumber,[],0);
+testLib(lib.findGreatestNumber,[],undefined);
 
 testLib(lib.findGreatestNumber,[1,2,5,8,1],8);
 
