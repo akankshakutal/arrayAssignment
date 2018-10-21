@@ -1,27 +1,15 @@
 const assert = require('assert');
 const lib = require('../lib/selectEverySecondElement.js');
+const { testLib } = require('../testLib.js');
 
-//empty array
-let actualOutput = lib.selectEverySecondElement([]);
-let expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
+console.log("---------- Test Report ----------");
 
-//one element array
-actualOutput = lib.selectEverySecondElement([1]);
-expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.selectEverySecondElement,[],[]);
 
-// only two elements array
-actualOutput = lib.selectEverySecondElement([2,3]);
-expectedOutput = [3];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.selectEverySecondElement,[2,3],[2]);
 
-//non empty array
-actualOutput = lib.selectEverySecondElement([1,2,3,4]);
-expectedOutput  = [2,4];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.selectEverySecondElement,[1,2,3,4],[1,3]);
 
-//string as an element of array
-actualOutput = lib.selectEverySecondElement(["abc","xyz","pqr","lmn"]);
-expectedOutput  = ["xyz","lmn"];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.selectEverySecondElement,["abc","xyz","pqr","lmn"],["abc","pqr"]);
+
+
