@@ -1,21 +1,13 @@
-let assert = require('assert');
-let lib = require('../lib/reverseArray.js');
+const assert = require('assert');
+const lib = require('../lib/reverseArray.js');
+const { testLib } = require('../testLib.js');
 
-//non empty array
-let actualOutput = lib.reverseArray([1,2,3,4,5,6]);
-let expectedOutput = [6,5,4,3,2,1];
-assert.deepEqual(actualOutput.expectedOutput);
+console.log("---------- Test Report ----------");
 
-//empty array
-actualOutput = lib.reverseArray([]);
-expectedOutput = [];
-assert.deepEqual(actualOutput.expectedOutput);
+testLib(lib.reverseArray,[],[]);
 
-//only one element 
-actualOutput = lib.reverseArray([4]);
-expectedOutput = [4];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(lib.reverseArray,[4],[4]);
 
-//string as an input 
-actualOutput = lib.reverseArray(["abc","xyz","lmn"]);
-expectedOutput = ["lmn","xyz","abc"];
+testLib(lib.reverseArray,[1,2,3,4,5,6],[6,5,4,3,2,1]);
+
+testLib(lib.reverseArray,["abc","xyz","lmn"],["lmn","xyz","abc"]);
