@@ -1,19 +1,13 @@
 const assert = require('assert');
 const lib = require('../lib/sumOfAllElements.js');
+const { testLib } = require('../testLib.js');
 
-//non empty array
-let actualOutput = lib.addAll([1,2,3,4,5]);
-let expectedOutput = 15;
-assert.equal(actualOutput,expectedOutput);
+console.log("---------- Test Report ----------");
 
-//empty array 
-actualOutput = lib.addAll([]);
-expectedOutput = undefined;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.addAll,[1,2,3,4,5],15);
 
-//string as an input 
-actualOutput = lib.addAll(["abc","pqr"]);
-expectedOutput = "abcpqr";
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.addAll,[],undefined);
+
+testLib(lib.addAll,["abc","pqr"],"abcpqr");
 
 
