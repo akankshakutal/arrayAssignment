@@ -1,22 +1,23 @@
 const assert = require('assert');
 const lib = require('../lib/indexOfNumber.js');
 
-//valid input
+const testLib = function(functionName,expectedOutput,actualOutput) {
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log("Function name   : ",functionName.name);
+  console.log("Expected output : ",expectedOutput);
+  console.log("Actual Output   : ",actualOutput);
+  console.log("--------------------------------");
+}
+console.log("---------- Test Report ----------");
+
 let actualOutput = lib.numberIndex([1,2,6,7,9,3],6);
-let expectedOutput = 2;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.numberIndex,2,actualOutput);
 
-//same number in two places
 actualOutput = lib.numberIndex([12,34,56,78,90,12],12);
-expectedOutput = 0;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.numberIndex,0,actualOutput);
 
-//empty array
 actualOutput = lib.numberIndex([],7);
-expectedOutput = -1;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.numberIndex,-1,actualOutput);
 
-//number is not present 
 actualOutput = lib.numberIndex([1,2,3,4,5],9);
-expectedOutput = -1;
-assert.equal(actualOutput,expectedOutput);
+testLib(lib.numberIndex,-1,actualOutput);
