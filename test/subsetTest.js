@@ -1,28 +1,28 @@
 const assert = require('assert');
 const { isSubset } = require('../lib/subset.js');
 
-//empty array as an input 
+const testLib = function(functionName,expectedOutput,actualOutput) {
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log("Function name   : ",functionName.name);
+  console.log("Expected output : ",expectedOutput);
+  console.log("Actual Output   : ",actualOutput);
+  console.log("--------------------------------");
+}
+
+console.log("---------- Test Report ----------");
+
 let actualOutput = isSubset([],[]);
-let expectedOutput = true;
-assert.equal(actualOutput,expectedOutput);
+testLib(isSubset,true,actualOutput);
 
-//one element array 
 actualOutput = isSubset([1],[2]);
-expectedOutput = false;
-assert.equal(actualOutput,expectedOutput);
+testLib(isSubset,false,actualOutput);
 
-//valid input 
 actualOutput = isSubset([1,2,7,8],[2,8]);
-expectedOutput = true;
-assert.equal(actualOutput,expectedOutput);
+testLib(isSubset,true,actualOutput);
 
-//negative element as an element 
 actualOutput = isSubset([-1,-4,-8,7],[-4,-1,8]);
-expectedOutput = false;
-assert.equal(actualOutput,expectedOutput);
+testLib(isSubset,false,actualOutput);
 
-//string as an array element
 actualOutput = isSubset(["akanksha","pratiksha","omkar"],["omkar"]);
-expectedOutput = true;
-assert.equal(actualOutput,expectedOutput);
+testLib(isSubset,true,actualOutput);
 
