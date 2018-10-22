@@ -1,33 +1,27 @@
 const assert = require('assert');
 const { rotateArray } = require('../lib/rotateArray.js');
 
-const emptyArray = function() {
-  let actualOutput = rotateArray([],2);
-  let expectedOutput = [undefined,undefined];
+const testLib = function(functionName,expectedOutput,actualOutput) {
   assert.deepEqual(actualOutput,expectedOutput);
+  console.log("Function name   : ",functionName.name);
+  console.log("Expected output : ",expectedOutput);
+  console.log("Actual Output   : ",actualOutput);
+  console.log("--------------------------------");
 }
 
-const oneElementArray = function() {
-  let actualOutput = rotateArray([1],1);
-  let expectedOutput = [1];
-  assert.deepEqual(actualOutput,expectedOutput);
-}
+console.log("---------- Test Report ----------");
 
-const multiElementArray = function() {
-  let actualOutput = rotateArray([1,2,3,4,],2);
-  let expectedOutput = [3,4,1,2];
-  assert.deepEqual(actualOutput,expectedOutput);
-}
 
-const stringArray = function() {
-  let actualOutput = rotateArray(["tejal","sonal","rutuja","akanksha"],2);
-  let expectedOutput = ["rutuja","akanksha","tejal","sonal"];
-  assert.deepEqual(actualOutput,expectedOutput);
-}
+let actualOutput = rotateArray([],2);
+testLib(rotateArray,[undefined],actualOutput);
 
-emptyArray();
-oneElementArray();
-multiElementArray();
-stringArray();
-console.log("All tests are passed");
+actualOutput = rotateArray([1],1);
+testLib(rotateArray,[1],actualOutput);
+
+actualOutput = rotateArray([1,2,3,4],2);
+testLib(rotateArray,[3,4,1,2],actualOutput);
+
+actualOutput = rotateArray(["Tejal","Sonal","Akanksha","Rutuja"],2);
+testLib(rotateArray,["Akanksha","Rutuja","Tejal","Sonal"],actualOutput);
+
 
