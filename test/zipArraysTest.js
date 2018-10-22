@@ -1,37 +1,34 @@
 const assert = require('assert');
 const { zipArrays } = require('../lib/zipArrays.js');
 
-//empty array as an input
+const testLib = function(functionName,expectedOutput,actualOutput) {
+  assert.deepEqual(actualOutput,expectedOutput);
+  console.log("Function name   : ",functionName.name);
+  console.log("Expected output : ",expectedOutput);
+  console.log("Actual Output   : ",actualOutput);
+  console.log("--------------------------------");
+}
+
+console.log("---------- Test Report ----------");
+
 let actualOutput = zipArrays([],[]);
-let expectedOutput = [];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(zipArrays,[],actualOutput);
 
-//one element array
-actualOutput = zipArrays([1],[2]);
-expectedOutput = [[1,2]];
-assert.deepEqual(actualOutput,expectedOutput);
+actualOutput = zipArrays([1],[1]);
+testLib(zipArrays,[[1,1]],actualOutput);
 
-//more than one elements in array
 actualOutput = zipArrays([1,2,3,4],[4,3,2,1]);
-expectedOutput = [[1,4],[2,3],[3,2],[4,1]];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(zipArrays,[[1,4],[2,3],[3,2],[4,1]],actualOutput);
 
-//different length
 actualOutput = zipArrays([1,2,3,4],[1,2,3]);
-expectedOutput = [[1,1],[2,2],[3,3]];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(zipArrays,[[1,1],[2,2],[3,3]],actualOutput);
 
-//length of second array is greater than first one
 actualOutput = zipArrays([1,2,3,4],[1,2,3,4,5]);
-expectedOutput = [[1,1],[2,2],[3,3],[4,4]];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(zipArrays,[[1,1],[2,2],[3,3],[4,4]],actualOutput);
 
-//negative numbers as an array element
-actualOutput = zipArrays([-1,-2,-4],[1,3,4]);
-expectedOutput = [[-1,1],[-2,3],[-4,4]];
-assert.deepEqual(actualOutput,expectedOutput);
+actualOutput = zipArrays([-1,-2,-4],[1,2,4]);
+testLib(zipArrays,[[-1,1],[-2,2],[-4,4]],actualOutput);
 
-//string as an array element
 actualOutput = zipArrays(["abc","xyz"],["pqr","lmn"]);
-expectedOutput = [["abc","pqr"],["xyz","lmn"]];
-assert.deepEqual(actualOutput,expectedOutput);
+testLib(zipArrays,[["abc","pqr"],["xyz","lmn"]],actualOutput);
+
