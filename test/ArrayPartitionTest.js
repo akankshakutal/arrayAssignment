@@ -1,33 +1,24 @@
 const assert = require('assert');
-const { divideArray } =  require('../lib/arrayPartition.js');
+const { partArray } =  require('../lib/arrayPartition.js');
 
-const emptyArray = function() { 
-  let actualOutput = divideArray([],0);
-  let expectedOutput = [[],[]]
+const testLib = function(functionName,expectedOutput,actualOutput) {
   assert.deepEqual(actualOutput,expectedOutput);
+  console.log("Function name   : ",functionName.name);
+  console.log("Expected output : ",expectedOutput);
+  console.log("Actual Output   : ",actualOutput);
+  console.log("--------------------------------");
 }
+console.log("---------- Test Report ----------");
 
-const oneElementArray = function() { 
-  let actualOutput = divideArray([3],0);
-  let expectedOutput = [[],[3]]
-  assert.deepEqual(actualOutput,expectedOutput);
-}
+let actualOutput = partArray([],0);
+testLib(partArray,[[],[]],actualOutput);
 
-const multyElementArray = function() { 
-  let actualOutput = divideArray([1,2,3,6,7,8],5);
-  let expectedOutput = [[1,2,3],[6,7,8]]
-  assert.deepEqual(actualOutput,expectedOutput);
-}
+actualOutput = partArray([3],0);
+testLib(partArray,[[],[3]],actualOutput);
 
-const negativeNumberArray = function() { 
-  let actualOutput = divideArray([-1,-2,-4,-6,8,0,2],-2);
-  let expectedOutput = [[-2,-4,-6],[-1,8,0,2]]
-  assert.deepEqual(actualOutput,expectedOutput);
-}
+actualOutput = partArray([1,2,3,6,7,8],5);
+testLib(partArray,[[1,2,3],[6,7,8]],actualOutput);
 
-emptyArray();
-oneElementArray();
-multyElementArray();
-negativeNumberArray();
-console.log("All tests are passed.....!");
+actualOutput = partArray([-1,-2,-4,-6,8,0,2],-2);
+testLib(partArray,[[-2,-4,-6],[-1,8,0,2]],actualOutput);
 
